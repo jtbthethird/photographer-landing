@@ -24,13 +24,16 @@
         padding-top: 10px;
         color: #444;
         padding-left: 10px;
+        letter-spacing: 0.15em;
+        line-height: 30px;
     }
     
     #photos-header {
         padding-top: 10px;
         float: left;
         background-color: #FFF;
-        opacity: 0.5;
+        opacity: 0.8;
+        height: 30px;
     }
 }
 @media (min-width: 768px) {
@@ -102,6 +105,10 @@ form input.form-control:focus {
     border-color: #37d6b4;
 }
 
+form input.form-control:disabled {
+    border-color: #AAA;
+}
+
 /* Style placeholder text */
 .form-control::-webkit-input-placeholder { color: #33acfc; }
 .form-control:-moz-placeholder { color: #33acfc; }
@@ -109,10 +116,10 @@ form input.form-control:focus {
 .form-control:-ms-input-placeholder { color: #33acfc; }
 
 /* Style placeholder text on highlight */
-.form-control:focus::-webkit-input-placeholder { color: #37d6b4; }
-.form-control:focus:-moz-placeholder { color: #37d6b4; }
-.form-control:focus::-moz-placeholder { color: #37d6b4; }
-.form-control:focus:-ms-input-placeholder { color: #37d6b4; }
+.form-control:focus::-webkit-input-placeholder { color: #33acfc; }
+.form-control:focus:-moz-placeholder { color: #33acfc; }
+.form-control:focus::-moz-placeholder { color: #33acfc; }
+.form-control:focus:-ms-input-placeholder { color: #33acfc; }
 
 button.submit {
     margin-top: 40px;
@@ -124,6 +131,28 @@ button.submit {
     background-color: #33acfc;
     border: none;
     border-radius: 2px;
+}
+
+button.submit:disabled {
+    background-color: #66DFFF;
+}
+
+/* -- Parsley Validation -- */
+input.form-control.parsley-success {
+    background-color: #FFF;
+    border-color: #37d6b4;
+}
+
+input.form-control.parsley-error {
+    border-color: #EE1c2c; 
+}
+
+ul.parsley-errors-list {
+    list-style: none;
+    padding-left: 10px;
+}
+ul.parsley-errors-list li {
+    color: #EE1c2c;
 }
 
 /* ---- Footer ---- */

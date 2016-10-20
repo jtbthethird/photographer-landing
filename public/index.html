@@ -38,14 +38,14 @@
                         <p class="feature"><span class="feature-check glyphicon glyphicon-lg glyphicon-ok 
         "></span> Quick, easy payment</p>
                     </div>
-                    <div id="form">
-                        <form>
-                            <input class="form-control" type="text" placeholder="Name">
-                            <input class="form-control" type="text" placeholder="Email Address">
-                            <input class="form-control" type="text" placeholder="Phone Number">
-                            <input class="form-control" type="text" placeholder="Zip Code">
-                            <input class="form-control" type="text" placeholder="Portfolio URL">
-                            <button type="button" class="submit">SUBMIT</button>
+                    <div>
+                        <form id="photographer-form" action="/apply" method="post">
+                            <input class="form-control" type="text" name="name" placeholder="Name" required>
+                            <input class="form-control" type="email" name="email" placeholder="Email Address" required>
+                            <input class="form-control" type="text" name="phone" placeholder="Phone Number" required>
+                            <input class="form-control" type="text" name="zip" placeholder="Zip Code" required>
+                            <input class="form-control" type="text" name="portfolio" placeholder="Portfolio URL" required>
+                            <button type="submit" class="submit" id="submit-form">SUBMIT</button>
                         </form>
                     </div>
                     <div id="footer" class="row">
@@ -57,10 +57,10 @@
             <div class="hidden-xs col-xs-12 col-sm-6 col-md-8" id="photos-side">
                 <div id="visibility-wrapper">
                     <row>
-                        <div id="photos-header" class="visible-xs-inline">
-                            <a href="#apply" class="" id="apply-link"><strong><span class="glyphicon glyphicon-chevron-left"></span> APPLY</strong></a>
-                        </div>
                         <div class="col-sm-12 col-md-6">
+                        <div id="photos-header" class="visible-xs-inline col-xs-12">
+                            <a href="#apply" class="" id="apply-link"><strong><span class="glyphicon glyphicon-chevron-left"></span> SIGN UP</strong></a>
+                        </div>
                             <figure class="figure-square figure1"></figure>
                         </div>
                         <div class="col-sm-12 col-md-6">
@@ -96,6 +96,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js" type="application/javascript"></script>
+        <script src="js/parsley.min.js"></script>
         <script src="js/main.js" type="application/javascript"></script>
     </body>
 </html>
