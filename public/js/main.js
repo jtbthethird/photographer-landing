@@ -42,4 +42,10 @@ $(function() {
         return false;
     });
 
+    $("#faq").on('click', function(e) {
+        e.preventDefault();
+        $("h4.modal-title").text("FAQ");
+        $("div.modal-body p").text("FAQ goes here...");
+        $("#modal").modal();
+    })
 });
