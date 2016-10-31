@@ -46,6 +46,6 @@ $(function() {
         e.preventDefault();
         $("h4.modal-title").text("FAQ");
         $("div.modal-body p").text("FAQ goes here...");
-        $("#modal").modal();
+        $("#faq-modal").modal();
     })
 });

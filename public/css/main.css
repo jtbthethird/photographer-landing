@@ -50,12 +50,23 @@
 }
 
 /* ---- General Stuff ---- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 .container-fluid {
+    position: static;
     padding-left: 0px;
     padding-right: 0px;
 }
 
 /* ---- Signup Section ---- */
+#signup-side {
+    position: static;
+/*    margin-bottom: 80px;*/
+}
+
 #headline h1 {
     color: #444;
 }
@@ -151,15 +162,32 @@ ul.parsley-errors-list li {
 }
 
 /* ---- Footer ---- */
+#signup-container {
+    margin-bottom: 70px;
+}
+
 #footer {
-    margin-top: 40px;
-    margin-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    padding-top: 30px;
+    margin-left: -15px;
     text-align: center;
 }
 
 #footer a {
     color: #444;
     font-weight: 500;
+}
+/* ---- Modal ---- */
+.modal-footer {
+    text-align: left;
+}
+
+.modal-footer a {
+    color: #33acfc;
+    font-weight: bold;
 }
 
 /* ---- Images ---- */

@@ -28,7 +28,7 @@
     <body>
         <div class="container-fluid">
             <div class="col-xs-12 col-sm-6 col-md-4" id="signup-side">
-                <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+                <div class="col-xs-12 col-lg-10 col-lg-offset-1" id="signup-container">
                     <div id="header">
                         <img src="img/msh-logo.png" class="msh-logo">
                         <a href="#examples" class="visible-xs-inline" id="example-link"><strong>EXAMPLES <span class="glyphicon glyphicon-chevron-right"></span></strong></a>
@@ -56,27 +56,31 @@
                             <button type="submit" class="submit" id="submit-form">SUBMIT</button>
                         </form>
                     </div>
-                    <div id="footer" class="row">
-                        <div class="col-xs-6"><a href="#FAQ" id="faq">FAQ</a></div>
-                        <div class="col-xs-6"><a href="#contact" id="contact">CONTACT</a></div>
-                    </div>
-                    <div class="modal fade" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Modal title</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>One fine body&hellip;</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
                 </div>
+                <footer id="footer" class="">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="col-xs-4 col-xs-offset-2"><a href="#FAQ" id="faq">FAQ</a></div>
+                        <div class="col-xs-4"><a href="#contact" id="contact">CONTACT</a></div>
+                    </div>
+                </footer>
+                <div class="modal fade in" id="faq-modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Frequently Asked Questions</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>One fine body&hellip;</p>
+                            </div>
+                            <div class="modal-footer">
+                                <h4>Still have questions? Get in touch.</h4>
+                                <p><a href="mailto:photography@mainstreethub.com">photography@mainstreethub.com</a></p>
+                                <p><a href="tel:">Call us:</a></p>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
             </div>
             <div class="hidden-xs col-xs-12 col-sm-6 col-md-8" id="photos-side">
                 <div id="visibility-wrapper">
