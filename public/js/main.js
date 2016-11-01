@@ -1,3 +1,20 @@
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
 $(function() {
     $("#example-link").on("click", function(e) {
         e.preventDefault();
@@ -30,14 +47,20 @@ $(function() {
     
     $('#photographer-form').parsley().on('form:submit', function() {
         var data = this.$element.serialize();
+        var jsonData = this.$element.serializeObject();
         console.log(data);
         var button = $("button#submit-form");
         button.attr('disabled', 'disabled');
         button.text("SUBMITTING");
-        
+
         $.post("/apply", data, function(done) {
             $("form#photographer-form input").attr('disabled', 'disabled');
-            button.text("THANKS!");
+            $("#photographer-form").hide();
+            $("#awesome").fadeIn(300);
+        
+            analytics.track('Form Submitted', jsonData, {}, function(e) {
+                console.log(e);
+            });
         });
         return false;
     });
