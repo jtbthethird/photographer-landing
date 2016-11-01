@@ -1,9 +1,23 @@
 require('dotenv').config();
 
+// Basics
 var express = require('express');
 var app = express();
+
+// Sendgrid
+// Set the SENDGRID_API_KEY environment variable for this to work
 var sendgrid_helper = require('sendgrid').mail;
 var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+
+// JIRA
+// Set the JIRA_HOST_URL environment variable for this to work
+var JiraClient = require('jira-connector');
+var jira = new JiraClient( { 
+    host: process.env.JIRA_HOST_URL,
+    basic_auth: {
+        base64: process.env.JIRA_AUTH_64
+    }
+});
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -15,6 +29,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+
 
 app.post("/apply", function(req, res) {
     console.log(req.body);
@@ -38,6 +53,18 @@ app.post("/apply", function(req, res) {
         console.log(response.statusCode);
         console.log(response.body);
         console.log(response.headers);
+    });
+    
+    jira.issue.createIssue({
+        "fields": {
+            "project": {"id":process.env.JIRA_PROJECT_ID},
+            "issuetype": {"id":process.env.JIRA_ISSUETYPE_ID},
+            "summary": form_data.name,
+            "description": JSON.stringify(form_data)
+        }
+    }, function(error, issue) {
+        console.log("Error: " + error);
+        console.log("Issue: " + issue);
     });
 
     res.send();
