@@ -11,9 +11,10 @@ Installation
 Download this repo and run `npm install`
 
 Make sure you have the following environment variables set on the machine:
-FROM_EMAIL
-TO_EMAIL
-SENDGRID_API_KEY
+
+    FROM_EMAIL=example@example.com
+    TO_EMAIL=destination@example.com
+    SENDGRID_API_KEY=sendgridapikeygoeshere
 
 Run
 ---
