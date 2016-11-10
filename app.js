@@ -3,6 +3,7 @@ require('dotenv').config();
 // Basics
 var express = require('express');
 var app = express();
+var enforce = require('express-sslify');
 
 // Sendgrid
 // Set the SENDGRID_API_KEY environment variable for this to work
@@ -24,6 +25,10 @@ app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
+
+if(process.env.REDIRECT_SSL === 'true'){
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+}
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -54,7 +59,7 @@ app.post("/apply", function (req, res) {
         console.log(response.body);
         console.log(response.headers);
     });
-    
+
     // validate that the portfolio is a URL
     if (!form_data.portfolio.match(/^[a-zA-Z]+:\/\//))
     {

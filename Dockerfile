@@ -1,3 +1,4 @@
 FROM node:4-onbuild
 ENV PORT=80
+ENV REDIRECT_SSL=true
 EXPOSE 80
