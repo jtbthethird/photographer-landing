@@ -1,6 +1,6 @@
 {
   "name": "msh-photographer-landing-page",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Return an empty mad-lib.",
   "main": "index.js",
   "dependencies": {
