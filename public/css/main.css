@@ -1,9 +1,9 @@
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .msh-logo {
         padding-top: 10px;
         width: 115px;
     }
-    
+
     a#example-link {
         float: right;
         text-align: right;
@@ -12,11 +12,11 @@
         padding-top: 10px;
         color: #444;
     }
-    
+
     #headline {
         padding-bottom: 10px;
     }
-    
+
     a#apply-link {
         text-align: left;
         font-family: sans-serif;
@@ -27,7 +27,7 @@
         letter-spacing: 0.15em;
         line-height: 30px;
     }
-    
+
     #photos-header {
         padding-top: 10px;
         float: left;
@@ -41,13 +41,13 @@
         padding-top: 10px;
         width: 140px;
     }
-    
+
     #visibility-wrapper {
         height: 100%;
         width: 100%;
         overflow: hidden;
     }
-    
+
     #signup-container {
         padding-left: 40px;
         padding-right: 40px;
@@ -80,7 +80,7 @@ html {
     color: #444;
     font-family: 'Open Sans', sans-serif;
 }
-    
+
 #headline {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -112,7 +112,7 @@ form input.form-control {
     border-right: 0px;
     border-radius: 0px;
     border-bottom: 1px solid;
-    border-color: #33acfc; 
+    border-color: #33acfc;
     box-shadow: none;
     margin-top: 20px;
     font-size: 1em;
@@ -133,21 +133,21 @@ form input.form-control:disabled {
 }
 
 /* Style placeholder text */
-.form-control::-webkit-input-placeholder { 
+.form-control::-webkit-input-placeholder {
     font-family: 'Open Sans', sans-serif;
-    color: #33acfc; 
+    color: #33acfc;
 }
-.form-control:-moz-placeholder { 
+.form-control:-moz-placeholder {
     font-family: 'Open Sans', sans-serif;
-    color: #33acfc; 
+    color: #33acfc;
 }
-.form-control::-moz-placeholder { 
+.form-control::-moz-placeholder {
     font-family: 'Open Sans', sans-serif;
-    color: #33acfc; 
+    color: #33acfc;
 }
-.form-control:-ms-input-placeholder { 
+.form-control:-ms-input-placeholder {
     font-family: 'Open Sans', sans-serif;
-    color: #33acfc; 
+    color: #33acfc;
 }
 
 /* Style placeholder text on highlight */
@@ -180,7 +180,7 @@ input.form-control.parsley-success {
 }
 
 input.form-control.parsley-error {
-    border-color: #EE1c2c; 
+    border-color: #EE1c2c;
 }
 
 ul.parsley-errors-list {
@@ -271,7 +271,7 @@ ul.parsley-errors-list li {
     background-image: url("/img/pizza_shop-5491.jpg");
 }
 .figure4 {
-    background-image: url("/img/Blind_Pig_Pub-7448.jpg");
+    background-image: url("/img/hobartautoLA-26.jpg");
 }
 .figure5 {
     background-image: url("/img/Ron_Ross_Motos-10.jpg");
@@ -299,19 +299,19 @@ ul.parsley-errors-list li {
     background-image: url("/img/SpiceSaigon-SpringRolls_2.jpg");
 }
 .figure13 {
-    background-image: url("/img/Apanas-55.jpg");
+    background-image: url("/img/MoscowMule-2.jpg");
 }
 .figure14 {
     background-image: url("/img/Hey Gorgeous-0401.jpg");
 }
 .figure15 {
-    background-image: url("/img/hobartautoLA-26.jpg");
+    background-image: url("/img/Hey Gorgeous-0316.jpg");
 }
 .figure16 {
     background-image: url("/img/FriedChicken_BreadedChickenBaconTomatoProvolonePeppadewAioliBriocheBun-1.jpg");
 }
 .figure17 {
-    background-image: url("/img/Delish-4485.jpg");
+    background-image: url("/img/Market_Hangar-2982.jpg");
 }
 .figure18 {
     background-image: url("/img/Flower_Studio-1413.jpg");
@@ -345,14 +345,14 @@ ul.parsley-errors-list li {
     background-image: url("/img/Flower_Studio-1427.jpg");
 }
 .figure28 {
-    background-image: url("/img/MoscowMule-2.jpg");
+    background-image: url("/img/Apanas-55.jpg");
 }
 .figure29 {
     padding-top: 80%;
     background-image: url("/img/Market_Hangar-3352.jpg");
 }
 .figure30 {
-    background-image: url("/img/Sornoso Auto-4.jpg");
+    background-image: url("/img/Market_Hangar-3352.jpg");
 }
 .figure31 {
     background-image: url("/img/What The Fish-100.jpg");
