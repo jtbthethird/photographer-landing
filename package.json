@@ -1,7 +1,7 @@
 {
   "name": "msh-photographer-landing-page",
   "version": "1.0.4",
-  "description": "Return an empty mad-lib.",
+  "description": "Allow photographers to sign up with MSH.",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.15.2",
