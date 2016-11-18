@@ -1,3 +1,14 @@
+window.Parsley
+  .addValidator('name', {
+      requirementType: 'string',
+      validateString: function(value) {
+          return value.split(/\S\s+\S/).length >= 2;
+      },
+      messages: {
+          en: 'Please include first and last name.'
+      }
+  });
+
 $.fn.serializeObject = function()
 {
     var o = {};

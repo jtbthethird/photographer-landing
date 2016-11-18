@@ -45,7 +45,7 @@ app.post("/apply", function (req, res) {
     var body = "<h1>New photography application</h1><br/>Name: " + form_data.name +
         "<br/>Email: " + form_data.email +
         "<br/>Phone: " + form_data.phone +
-        "<br/>Zip Code: " + form_data.zip +
+        "<br/>Address: " + form_data.city + ", " + form_data.state + " " + form_data.zip +
         "<br/>Website: " + form_data.portfolio;
     var content = new sendgrid_helper.Content('text/html', body);
     var mail = new sendgrid_helper.Mail(from_email, subject, to_email, content);
@@ -73,6 +73,7 @@ app.post("/apply", function (req, res) {
             "customfield_10131": form_data.phone, // 10131 is the phone field
             "customfield_10202": form_data.portfolio, // 10202 is portfolio field
             "customfield_10128": form_data.email, // 10128 is email field
+            "customfield_10198": form_data.city + ", " + form_data.state + " " + form_data.zip,
             "customfield_10229": form_data.zip,
             "customfield_10201": "Landing Page" // Referral Field - In the future, we could link ad/referral campaigns to this field!
         }
