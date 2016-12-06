@@ -1,4 +1,9 @@
-FROM node:4-onbuild
-ENV PORT=80
-ENV REDIRECT_SSL=true
+FROM mhart/alpine-node:6
+
+WORKDIR /src
+ADD . .
+
 EXPOSE 80
+
+RUN npm install
+CMD [ "npm", "start" ]
