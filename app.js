@@ -4,21 +4,12 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var enforce = require('express-sslify');
+var request = require('superagent');
 
 // Sendgrid
 // Set the SENDGRID_API_KEY environment variable for this to work
 var sendgrid_helper = require('sendgrid').mail;
 var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
-
-// JIRA
-// Set the JIRA_HOST_URL environment variable for this to work
-var JiraClient = require('jira-connector');
-var jira = new JiraClient({
-    host: process.env.JIRA_HOST_URL,
-    basic_auth: {
-        base64: process.env.JIRA_AUTH_64
-    }
-});
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());       // to support JSON-encoded bodies
@@ -42,7 +33,7 @@ app.post("/apply", function (req, res) {
     var from_email = new sendgrid_helper.Email(process.env.FROM_EMAIL);
     var to_email = new sendgrid_helper.Email(process.env.TO_EMAIL);
     var subject = 'Photo Application!';
-    var body = "<h1>New photography application</h1><br/>Name: " + form_data.name +
+    var body = "<h1>New photography application</h1><br/>Name: " + form_data.firstName + " " + form_data.lastName +
         "<br/>Email: " + form_data.email +
         "<br/>Phone: " + form_data.phone +
         "<br/>Address: " + form_data.city + ", " + form_data.state + " " + form_data.zip +
@@ -65,24 +56,43 @@ app.post("/apply", function (req, res) {
     {
         form_data.portfolio = 'http://' + form_data.portfolio;
     }
-    jira.issue.createIssue({
-        "fields": {
-            "project": {"id": process.env.JIRA_PROJECT_ID},
-            "issuetype": {"id": process.env.JIRA_ISSUETYPE_ID},
-            "summary": form_data.name,
-            "customfield_10131": form_data.phone, // 10131 is the phone field
-            "customfield_10202": form_data.portfolio, // 10202 is portfolio field
-            "customfield_10128": form_data.email, // 10128 is email field
-            "customfield_10198": form_data.city + ", " + form_data.state + " " + form_data.zip,
-            "customfield_10229": form_data.zip,
-            "customfield_10201": "Landing Page" // Referral Field - In the future, we could link ad/referral campaigns to this field!
-        }
-    }, function (error, issue) {
-        console.log("Error: " + JSON.stringify(error));
-        console.log("Issue: " + issue);
-    });
 
-    res.send();
+    request.post('https://harvest.greenhouse.io/v1/candidates')
+        .auth(process.env.GREENHOUSE_API_KEY)
+        .set('Content-Type', 'application/json')
+        .set({'On-Behalf-Of': process.env.GREENHOUSE_ADMIN_USER_ID})
+        .send({
+            first_name: form_data.firstName,
+            last_name: form_data.lastName,
+            email_addresses: [{
+                value: form_data.email,
+                type: 'work'
+            }],
+            phone_numbers: [{
+                value: form_data.phone,
+                type: 'mobile'
+            }],
+            website_addresses: [{
+                value: form_data.portfolio,
+                type: 'portfolio'
+            }],
+            addresses:[{
+                value: form_data.city + ", " + form_data.state + " " + form_data.zip,
+                type: 'work'
+            }],
+            applications: [{
+                job_id: process.env.GREENHOUSE_JOB_ID,
+                source_id: process.env.GREENHOUSE_PHOTOGRAPHY_LANDING_PAGE_SOURCE_ID
+            }]
+        })
+        .end(function(error, response){
+            if(error){
+                res.status(error.status).json({error: error.response});
+            } else {
+                res.status(201).send("candidate created with id: " + response.body.id);
+            }
+        });
+
 });
 
 app.listen(app.get('port'), function () {
